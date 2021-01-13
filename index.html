@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors Project - JS</title>
+</head>
+<body>
+    <h1>Rock, Paper Scissors - JS</h1>
+    <p>Hello - This is my basic Rock Paper Scissors Project. You play by entering the value into the Prompt -> Answers come in Console. 5 ROUNDS.</p>
+
+
+    <script>
+
+        function computerPlay() {
+            selectionArray = ["Rock", "Paper", "Scissors"]
+            selectionArray2 = selectionArray[Math.floor(Math.random()*selectionArray.length)];
+            return selectionArray2;
+           // console.log(selectionArray2)
+        }
+        // SCORE VARIABLES
+          computerScore = 0;
+          playerScore = 0;
+
+        
+        function playRound() {
+          const playerSelection = prompt("Rock Paper or Scissors?", "Rock");
+          const computerSelection = computerPlay();
+
+          
+
+          // CHOICE SHOWN
+          console.log("Computer Chose: " + computerSelection);
+          console.log("Player Chose: " + playerSelection);
+          // SCORE SHOW
+          console.log("Player Score:" + playerScore)
+          console.log("Computer Score:" + computerScore)
+          
+
+          // TIE MESSAGES
+          if(selectionArray2 === "Rock" && playerSelection === "Rock") {
+              console.log("You tied with Rock!")
+              console.log("Player Score " + playerScore)
+              console.log("Computer Score " + computerScore)
+          } else if (selectionArray2 === "Paper" && playerSelection === "Paper") {
+            console.log("You tied with Paper!")
+            console.log("Player Score " + playerScore)
+              console.log("Computer Score " + computerScore)
+          } else if (selectionArray2 === "Scissors" && playerSelection === "Scissors") {
+            console.log("You tied with Scissors!")
+            console.log("Player Score " + playerScore)
+              console.log("Computer Score " + computerScore)
+          }
+
+          // PLAYER & COMPUTER WIN MESSAGES
+          else if(selectionArray2 === "Scissors" && playerSelection === "Rock") {
+              console.log("You won!")
+              console.log("Player Score: " + ++playerScore)
+              console.log("Computer Score: " + computerScore)
+          } else if (selectionArray2 === "Paper" && playerSelection === "Scissors") {
+            console.log("You won!")
+            console.log("Player Score: " + ++playerScore)
+            console.log("Computer Score: " + computerScore)
+          } else if (selectionArray2 === "Rock" && playerSelection === "Paper") {
+            console.log("You won!")
+            console.log("Player Score: " + ++playerScore)
+            console.log("Computer Score: " + computerScore)
+          } else if (selectionArray2 === "Scissors" && playerSelection === "Paper") {
+            console.log("Computer won that round - try again!")
+            console.log("Computer Score: " + ++computerScore)
+            console.log("Player Score: " + playerScore)
+          } else if (selectionArray2 === "Paper" && playerSelection === "Rock") {
+            console.log("Computer won that round - try again!")
+            console.log("Computer Score: " + ++computerScore)
+            console.log("Player Score: " + playerScore)
+          } else if (selectionArray2 === "Rock" && playerSelection === "Scissors") {
+            console.log("Computer won that round - try again!")
+            console.log("Computer Score: " + ++computerScore)
+            console.log("Player Score: " + playerScore)
+          }
+          else {
+              console.log("You lost!")
+              console.log("Player Score: " + --playerScore)
+              console.log("Computer Score: " + ++computerScore)
+          }
+        }
+
+        function winnerDeclaration() {
+        if(computerScore > playerScore) {
+          console.log("Computer wins!")
+        } else {
+          console.log("Player wins!")
+        }
+      }
+
+function game(computerSelection, playerSelection) {
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            playRound();
+            winnerDeclaration();
+}
+
+
+// console.log(playRound(computerSelection, playerSelection));
+console.log(game());
+       
+
+    </script>
+</body>
+</html>
